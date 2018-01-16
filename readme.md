@@ -3,7 +3,10 @@ This code is used to collect csv files into a single csv and output in xlsx form
 
 # Pre-requisite
 
-Install R locally
+Install R studio locally https://www.rstudio.com/products/rstudio/download/
+
+
+
 ```{r}
 Install R packages
 install.packages("plyr")
