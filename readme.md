@@ -19,7 +19,7 @@ install.packages("xlsx")
 
 # Working directories
 
-Set working directory to main folder
+Create working directory to main folder
 Inside main directory, this folders must be created
 /input
 /output
@@ -38,6 +38,29 @@ The script executes below process:
 * removes duplicate lines
 * saves all merged files as CSV
 * saves all files as xlsx format
+
+# Instructions
+
+## Preparation
+1. Change the main working directory on `setwd("~/rProgramming/TLC")`
+2. Verify that you have all folders created and rename as needed
+```
+inputdir <- "~/rProgramming/TLC/input"
+stagedir <- "~/rProgramming/TLC/stage"
+outputdir <- "~/rProgramming/TLC/output"
+```
+
+### Execution
+3. Save all CSV files to be merged in input
+4. Open RStudio and open file merge.R
+5. Click Run in RStudio
+6. Verify output in folders `stage` and `output`
+
+# Technical note
+* input files are saved as separated by comma only. Therefore, inporting these files in MS Excel must be imported as separated by `;` only
+* output files are separated by comma `,` for easy reading in MS Excel
+* All files can be viewed and verified using a text editor
+* Regardless of duplication, the script will only keep one unique record of each batch
 
 # To Do
 add more files from previous batches saved in xlxs format
