@@ -5,6 +5,8 @@ This code is used to collect csv files into a single csv and output in xlsx form
 
 Install R studio locally https://www.rstudio.com/products/rstudio/download/
 
+Install R Packages
+https://youtu.be/3RWb5U3X-T8?t=76
 
 
 ```{r}
