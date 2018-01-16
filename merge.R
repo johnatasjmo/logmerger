@@ -4,7 +4,7 @@ setwd("~/rProgramming/TLC")
 Sys.setenv(TZ='America/Los_Angeles')
 now <- Sys.time()
 
-# Identify folders for inpit, stage, output
+# Identify folders for input, stage, output
 inputdir <- "~/rProgramming/TLC/input"
 stagedir <- "~/rProgramming/TLC/stage"
 outputdir <- "~/rProgramming/TLC/output"
@@ -38,6 +38,7 @@ ldf <- lapply(filelist, read.csv, skip = 9, header = F, sep = ";") %>%
 ldf <- mapply(`[<-`, ldf, 'batchID', value = list_batchID, SIMPLIFY = FALSE)
 # merge all rows
 ldf <- bind_rows(ldf) 
+# remove duplicates
 ldfunique <- unique(ldf)
 
 # save ldf as csv on stage directory
@@ -57,20 +58,20 @@ write.xlsx(x = ldfunique, file = "master.xlsx",
 
 # read master as csv, without headers, all rows
 # (make sure a file named master.xlsx exists in output directory)
-setwd(outputdir)
-master <- read.xlsx2("master.xlsx", 
-                     sheetName = "Master", 
-                     startRow=1)
+#setwd(outputdir)
+#master <- read.xlsx2("master.xlsx", 
+#                     sheetName = "Master", 
+#                     startRow=1)
 # align names of master
-names(master) <- headers
-master$Seq <- as.numeric(as.character(master$Seq))
+#names(master) <- headers
+#master$Seq <- as.numeric(as.character(master$Seq))
 # rbind both data.frames
-all<- bind_rows(ldfunique, master)
-all_unique <- unique(all)
+#all<- bind_rows(ldfunique, master)
+#all_unique <- unique(all)
 
 ## save to ms excel to stage directory
-setwd(outputdir)
+#setwd(outputdir)
 # write csv file
-write.xlsx(x = all_unique, file = paste0(format(now, "%Y%m%d_%H%M%S_"), "master.xlsx"),
-           sheetName = "master", row.names = TRUE)
+#write.xlsx(x = all_unique, file = paste0(format(now, "%Y%m%d_%H%M%S_"), "master.xlsx"),
+#           sheetName = "master", row.names = TRUE)
 
