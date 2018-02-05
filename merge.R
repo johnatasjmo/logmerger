@@ -14,6 +14,7 @@ library(plyr)
 library(dplyr)
 library(readr)
 library(xlsx)
+library(rJava)
 
 # create an stage file
 setwd(stagedir)
