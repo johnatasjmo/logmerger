@@ -13,8 +13,10 @@ outputdir <- "~/rProgramming/TLC/output"
 library(plyr)
 library(dplyr)
 library(readr)
-library(xlsx)
 library(rJava)
+library(xlsx)
+library(magrittr)
+
 
 # create an stage file
 setwd(stagedir)
